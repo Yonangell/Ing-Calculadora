@@ -1,15 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora Objeto</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <h1>Calculadora Objeto</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptate eveniet necessitatibus? Laborum enim, id cupiditate nemo nisi recusandae ad possimus! Alias sequi quis nam veniam minus, voluptas neque placeat!</p>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/x" href="/assets/image/calculadorcita.png" />
+  </head>
+  <body>
+    <h1 class="flex justify-center text-white text-4xl p-4 bg-zinc-500">
+      Calculadora desarrollada con Programación Orientada a Objetos
+    </h1>
+    <p class="text-lg leading-6 pl-6 pt-6 pr-6 pb-2 font-serif tracking-normal">
+      Esta aplicación es una calculadora interactiva desarrollada utilizando y
+      siguiendo los principios de la Programación Orientada a Objetos (POO). Se
+      ejecuta en el navegador web y permite realizar operaciones aritméticas
+      básicas: Suma, resta, multiplicación, división y el modulo.
+    </p>
+    <p class="text-lg leading-6 pl-6 pt-6 pr-6 pb-2 font-serif tracking-normal">
+      La aplicación se centra en una arquitectura modular y mantenible, donde
+      toda la lógica de cálculo y la gestión de la interfaz de usuario se
+      encapsulan dentro de una única clase principal.
+    </p>
+    <div class="container mx-auto px-4 py-8 flex justify-center">
+      <form
+        action="#"
+        id="formulario"
+        class="flex flex-col w-full md:w-1/3 p-4 gap-3 border border-gray-700 rounded-2xl box-border max-w-md"
+      >
+        <label for="name">Primer Número</label>
+        <input
+          type="text"
+          id="num1"
+          name="num1"
+          class="border border-slate-500 w-full px-3 py-2 rounded"
+          placeholder="Ingrese el num1"
+          required
+        />
+        <label for="name">Segundo Número</label>
+        <input
+          type="text"
+          id="num2"
+          name="num2"
+          class="border border-slate-500 w-full px-3 py-2 rounded"
+          placeholder="Ingrese el num2"
+          required
+        />
+        <select
+          name="selector"
+          id="operador"
+          class="w-full px-3 py-2 border rounded"
+        >
+          <option value="">Seleccione la Operación</option>
+          <option value="sumar">Sumar</option>
+          <option value="resta">Resta</option>
+          <option value="multiplicacion">Multiplicación</option>
+          <option value="division">División</option>
+          <option value="modulo">Modulo</option>
+        </select>
+        <button
+          type="button"
+          onclick="calcularOperacion()"
+          class="bg-sky-500 hover:bg-blue-700 text-white px-4 py-2 rounded-2xl w-full md:w-auto cursor-pointer "
+        >
+          Calcular Operación
+        </button>
+        <div id="resultado" class="pt-4 text-center">
+          Aqui tiene que aparecer el resultado
+        </div>
+      </form>
+    </div>
     <script src="/js/objeto.js"></script>
-</body>
+  </body>
 </html>

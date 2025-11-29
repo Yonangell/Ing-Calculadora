@@ -71,7 +71,7 @@ function calcularOperacion() {
       resultadito = calculadorcita.multiplicar();
       break;
 
-    case "divison":
+    case "division":
       resultadito = calculadorcita.dividir();
       break;
 

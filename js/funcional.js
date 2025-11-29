@@ -19,13 +19,19 @@ function realizarOperacion(num1, num2, operacion) {
 }
 
 function calculadora() {
-  let entrada1 = prompt("Ingrese el primer numero: ");
-  if (entrada1 === null || isNaN(parseFloat(entrada1))) {
-    alert("Entrada invalida");
-    return;
-  }
-
-  let num1 = parseFloat(entrada1);
+  let num1;
+  do {
+    let entrada1 = prompt("Ingrese el primer numero: ");
+    if (entrada1 === null) {
+      alert("Operación cancelada.");
+      return;
+    }
+    if (isNaN(parseFloat(entrada1.trim()))) {
+      alert("Entrada inválida. Por favor ingresa un número.");
+      continue;
+    }
+    num1 = parseFloat(entrada1);
+  } while (num1 === undefined);
 
   const operadoresValidos = ["+", "-", "*", "/", "%"];
   let operador;
@@ -66,3 +72,5 @@ function calculadora() {
 }
 
 calculadora();
+
+

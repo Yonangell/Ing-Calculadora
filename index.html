@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-</head>
-<body>
-    <h1>Calculadoras</h1>
-</body>
+    <link rel="icon" type="image/x" href="assets/image/calculadora.png" />
+  </head>
+  <body>
+    <h1 class="flex justify-center text-white text-4xl p-4 bg-blue-500">
+      Calculadoras
+    </h1>
+    <div class="flex justify-center p-24 gap-4">
+      <div class="flex flex-col md:flex-row justify-center p-8 md:p-32 gap-4">
+        <a href="/page/funcional.html" target="_blank"
+          ><button
+            type="button"
+            class="w-full md:w-auto bg-amber-500 text-white px-4 py-2 rounded-2xl cursor-pointer"
+          >
+            Calculadora Funcional
+          </button></a
+        >
+        <a href="/page/objeto.html" target="_blank"
+          ><button
+            type="button"
+            class="w-full md:w-auto bg-blue-500 text-white px-4 py-2 rounded-2xl cursor-pointer"
+          >
+            Calculadora Objeto
+          </button></a
+        >
+        <a href="/page/dom.html" target="_blank"
+          ><button
+            type="button"
+            class="w-full md:w-auto bg-red-500 text-white px-4 py-2 rounded-2xl cursor-pointer"
+          >
+            Calculadora DOM
+          </button></a
+        >
+      </div>
+    </div>
+  </body>
 </html>

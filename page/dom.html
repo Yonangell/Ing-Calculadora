@@ -1,15 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora Objeto</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <h1>Calculadora DOM</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vel esse qui non necessitatibus. Sunt facilis debitis dicta, non vel deserunt placeat laborum. Iusto sunt excepturi, non consequuntur est nulla.</p>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/x" href="/assets/image/calculadorsota.png" />
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-200">
+    <h1
+      class="flex justify-center text-white text-4xl p-4 bg-zinc-500 m-0 w-full"
+    >
+      Calculadora DOM
+    </h1>
+    <p class="text-lg leading-6 p-6 font-serif tracking-normal">
+      Esta aplicación es una calculadora completamente funcional desarrollada
+      utilizando JavaScript. Se ejecuta en el navegador web y se centra
+      fundamentalmente en la manipulación del DOM (Document Object Model) y la
+      programación orientada a eventos para ofrecer una experiencia de usuario
+      interactiva y fluida. La aplicación se basa en la respuesta dinámica a las
+      acciones del usuario, sin depender de recargas de página.
+    </p>
+
+    <div
+      class="calculator-grid grid grid-cols-4 justify-center gap-3 p-6 bg-gray-800 rounded-lg shadow-xl w-80 mx-auto mb-8"
+    >
+      <div
+        class="output col-span-4 bg-gray-900 p-4 rounded-lg mb-2 shadow-inner"
+      >
+        <div
+          data-previous-operand
+          class="previous-operand text-gray-400 text-xl text-right"
+        ></div>
+        <div
+          data-current-operand
+          class="current-operand text-white text-4xl text-right font-mono"
+        >
+          0
+        </div>
+      </div>
+
+      <button
+        data-all-clear
+        class="col-span-2 p-4 text-white bg-red-600 rounded-lg hover:bg-red-700 transition duration-150"
+      >
+        AC
+      </button>
+      <button
+        data-delete
+        class="p-4 text-white bg-gray-600 rounded-lg hover:bg-gray-700 transition duration-150"
+      >
+        DEL
+      </button>
+      <button
+        data-operation
+        class="p-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-150"
+      >
+        ÷
+      </button>
+
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        1
+      </button>
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        2
+      </button>
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        3
+      </button>
+      <button
+        data-operation
+        class="p-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-150"
+      >
+        *
+      </button>
+
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        4
+      </button>
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        5
+      </button>
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        6
+      </button>
+      <button
+        data-operation
+        class="p-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-150"
+      >
+        +
+      </button>
+
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        7
+      </button>
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        8
+      </button>
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        9
+      </button>
+      <button
+        data-operation
+        class="p-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-150"
+      >
+        -
+      </button>
+
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        .
+      </button>
+      <button
+        data-number
+        class="p-4 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-150"
+      >
+        0
+      </button>
+      <button
+        data-equals
+        class="col-span-2 p-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 transition duration-150"
+      >
+        =
+      </button>
+    </div>
+
     <script src="/js/dom.js"></script>
-</body>
+  </body>
 </html>

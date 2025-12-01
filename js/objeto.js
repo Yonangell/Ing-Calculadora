@@ -35,7 +35,6 @@ function calcularOperacion() {
   let operador = document.getElementById("operador").value;
   let mostraResultado = document.getElementById("resultado");
 
-  // Trim inputs and check which value is missing
   entrada1 = entrada1.trim();
   entrada2 = entrada2.trim();
 

@@ -63,7 +63,7 @@ function calculadora() {
 
     if (operador === "/" && num2 === 0) {
       alert("No se puede dividir entre 0. Por favor ingresa otro número.");
-      num2 = undefined; // fuerza repetir el bucle
+      num2 = undefined; 
     }
   } while (num2 === undefined);
 
@@ -72,5 +72,3 @@ function calculadora() {
 }
 
 calculadora();
-
-

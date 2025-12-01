@@ -22,12 +22,11 @@ function limpiar() {
 }
 
 function eliminarNumero() {
-  
-  operacionActual = operacionActual.toString().slice(0, -1);
-  
+  operacionActual = operacionActual.toString().trim().slice(0, -1);
 }
 
 function agregarNumero(numero) {
+  numero = numero.trim();
   if (numero === "." && operacionActual.includes(".")) return;
   operacionActual = operacionActual.toString() + numero.toString();
 }
@@ -35,22 +34,22 @@ function agregarNumero(numero) {
 function escogerOperacion(seleccionarOperacion) {
   if (operacionActual === "") return;
 
-  if (operacionActual !== "") {
+  if (operacionAnterior !== "") {
     calcular();
   }
 
-  operacion = seleccionarOperacion;
+  operacion = seleccionarOperacion.trim();
   operacionAnterior = operacionActual;
   operacionActual = "";
 }
 
 function calcular() {
   let calculando;
-  const anterior = parseFloat(operacionAnterior);
-  const continuar = parseFloat(operacionActual);
+  const anterior = parseFloat(operacionAnterior.toString().trim());
+  const continuar = parseFloat(operacionActual.toString().trim());
 
   if (isNaN(anterior) || isNaN(continuar)) return;
-    
+
   switch (operacion) {
     case "+":
       calculando = anterior + continuar;
@@ -69,49 +68,69 @@ function calcular() {
       return;
   }
 
-  operacionActual = calculando;
+  operacionActual = parseFloat(calculando.toFixed(8)).toString();
   operacion = undefined;
   operacionAnterior = "";
 }
 
 function actualizar() {
-  operacionActualTextoElemento.textContent = operacionActual;
+  function formatearNumero(numero) {
+    const strNum = numero.toString();
+    const digEnteros = parseFloat(strNum.split(".")[0]);
+    const digDecimal = strNum.split(".")[1];
+    let mostrarNumero;
+
+    if (isNaN(digEnteros)) {
+      mostrarNumero = "";
+    } else {
+      mostrarNumero = digEnteros.toLocaleString("en", {
+        maximumFractionDigits: 0,
+      });
+    }
+
+    if (digDecimal != null) {
+      return `${mostrarNumero}.${digDecimal}`;
+    } else {
+      return mostrarNumero;
+    }
+  }
+
+  operacionActualTextoElemento.textContent = formatearNumero(operacionActual);
 
   if (operacion != null) {
-    operacionAnteriorTextoElemento.textContent =
-      +operacionAnterior + " " + operacion;
+    operacionAnteriorTextoElemento.textContent = `${formatearNumero(
+      operacionAnterior
+    )} ${operacion}`;
   } else {
     operacionAnteriorTextoElemento.textContent = "";
   }
 }
 
-numerosBtn.forEach(button => {
+numerosBtn.forEach((button) => {
   button.addEventListener("click", () => {
     agregarNumero(button.textContent);
     actualizar();
   });
 });
 
-operacionBtn.forEach(button => {
+operacionBtn.forEach((button) => {
   button.addEventListener("click", () => {
-    escogerOperacion(button.textContent);
+    escogerOperacion(button.textContent.trim());
     actualizar();
   });
 });
 
-igualBtn.addEventListener("click", button => {
+igualBtn.addEventListener("click", (button) => {
   calcular();
   actualizar();
 });
 
-limpiarBtn.addEventListener("click", button => {
+limpiarBtn.addEventListener("click", (button) => {
   limpiar();
   actualizar();
 });
 
-eliminarBtn.addEventListener("click", button => {
+eliminarBtn.addEventListener("click", (button) => {
   eliminarNumero();
   actualizar();
 });
-
-

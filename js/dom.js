@@ -1,7 +1,7 @@
 const numerosBtn = document.querySelectorAll("[data-number]");
 const operacionBtn = document.querySelectorAll("[data-operation]");
-const igualBtn = document.querySelector('[data-equals]');
-const eliminarBtn = document.querySelector('[data-delete]');
+const igualBtn = document.querySelector("[data-equals]");
+const eliminarBtn = document.querySelector("[data-delete]");
 const limpiarBtn = document.querySelector("[data-all-clear]");
 
 const operacionAnteriorTextoElemento = document.querySelector(
@@ -22,7 +22,9 @@ function limpiar() {
 }
 
 function eliminarNumero() {
+  
   operacionActual = operacionActual.toString().slice(0, -1);
+  
 }
 
 function agregarNumero(numero) {
@@ -44,12 +46,11 @@ function escogerOperacion(seleccionarOperacion) {
 
 function calcular() {
   let calculando;
-
-  let anterior = parseFloat(operacionAnterior);
-  let continuar = parseFloat(operacionActual);
+  const anterior = parseFloat(operacionAnterior);
+  const continuar = parseFloat(operacionActual);
 
   if (isNaN(anterior) || isNaN(continuar)) return;
-
+    
   switch (operacion) {
     case "+":
       calculando = anterior + continuar;
@@ -77,22 +78,23 @@ function actualizar() {
   operacionActualTextoElemento.textContent = operacionActual;
 
   if (operacion != null) {
-    operacionAnteriorTextoElemento.textContent = `${operacionAnterior} ${operacion}`;
+    operacionAnteriorTextoElemento.textContent =
+      +operacionAnterior + " " + operacion;
   } else {
     operacionAnteriorTextoElemento.textContent = "";
   }
 }
 
-numerosBtn.forEach( boton => {
-  boton.addEventListener("click", () => {
-    agregarNumero(boton.textContent);
+numerosBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    agregarNumero(button.textContent);
     actualizar();
   });
 });
 
-operacionBtn.forEach( boton => {
-  boton.addEventListener("click", () => {
-    escogerOperacion(boton.textContent);
+operacionBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    escogerOperacion(button.textContent);
     actualizar();
   });
 });
@@ -111,3 +113,5 @@ eliminarBtn.addEventListener("click", button => {
   eliminarNumero();
   actualizar();
 });
+
+
